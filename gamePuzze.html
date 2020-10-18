@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table id="content">
+        <tr>
+            <td> <img data-name="jax" src="img/jaxx1.PNG" alt="1" id="img1" onclick="changeSrcImg(this.id,1)"></td>
+        </tr>
+        <tr>
+            <td><img data-name="lee" src="img/leex2.PNG" id="img2" onclick="changeSrcImg(this.id,2)"></td>
+
+        </tr>
+        <tr>
+            <td><img data-name="ys" src="img/ysx3.PNG" id="img3" onclick="changeSrcImg(this.id,3)" ></td>
+
+        </tr>
+    </table>
+</body>
+</html>
+<script>
+    function changeSrcImg(idImage,pos) {
+        let  img = document.getElementById(idImage);
+        let dataName = img.getAttribute("data-name");
+        let number = +img.alt;
+        // if(number<3){
+        //     number++;
+        // }else {
+        //     number = 1;
+        // }
+
+        number<3?number++:number=1;
+
+        switch (number){
+            case 1:
+                img.setAttribute("data-name",'jax');
+                break;
+            case 2:
+                img.setAttribute("data-name",'lee');
+                break;
+            case 3:
+                img.setAttribute("data-name",'ys');
+                break;
+            default:
+                img.setAttribute("data-name",'jax');
+        }
+
+        img.src = 'img/'+dataName+'x'+pos+'.PNG';
+        img.alt = number;
+
+        checkWin();
+
+        // document.getElementById(idImage).src = 'img/jax1x2.PNG';
+        // if (dataName === 'jax') {
+        //     switch (number) {
+        //         case 1:
+        //             document.getElementById(idImage).src = 'image/jax1x1.jpg';
+        //             break;
+        //         case 2:
+        //             document.getElementById(idImage).src = 'image/jax1x2.jpg';
+        //             break;
+        //         case 3:
+        //             document.getElementById(idImage).src = 'image/jax1x3.jpg';
+        //             break;
+        //     }
+        //
+        //     document.getElementById(idImage).setAttribute("data-name", 'lee');
+        //     checkWin()
+        //
+        // } else if (dataName === 'lee') {
+        //
+        //     switch (number) {
+        //         case 1:
+        //             document.getElementById(idImage).src = 'image/lee2x1.jpg';
+        //             break;
+        //         case 2:
+        //             document.getElementById(idImage).src = 'image/lee2x2.jpg';
+        //             break;
+        //         case 3:
+        //             document.getElementById(idImage).src = 'image/lee2x3.jpg';
+        //             break;
+        //
+        //     }
+        //
+        //     document.getElementById(idImage).setAttribute("data-name", 'ys');
+        //     checkWin()
+        // } else {
+        //     switch (number) {
+        //         case 1:
+        //             document.getElementById(idImage).src = 'image/ys3x1.jgp';
+        //             break;
+        //         case 2:
+        //             document.getElementById(idImage).src = 'image/ys3x2.igp';
+        //             break;
+        //         case 3:
+        //             document.getElementById(idImage).src = 'image/ys3x3.jgp';
+        //             break;
+        //     }
+        //     document.getElementById(idImage).setAttribute("data-name", 'jax');
+        //     checkWin()
+        // }
+
+    }
+
+    function checkWin() {
+        let dataNameImg1 = document.getElementById('img1').getAttribute("data-name");
+        let dataNameImg2 = document.getElementById('img2').getAttribute("data-name");
+        let dataNameImg3 = document.getElementById('img3').getAttribute("data-name");
+
+        if (dataNameImg1 === dataNameImg2 && dataNameImg2 === dataNameImg3) {
+            document.getElementById('content').style.border = '2px solid red';
+        } else {
+            document.getElementById('content').style.border = '2px solid white';
+        }
+    }
+    </script>

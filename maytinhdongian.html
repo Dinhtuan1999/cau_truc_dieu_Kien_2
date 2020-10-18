@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style boder="1px" width="100px" height="100px"></style>
+</head>
+<body>
+    <table  >
+
+
+        <input type="text" id="output"/>
+
+
+            <td> <button onclick="getvalue(1)" type="button">1</button>  </td>
+            <td> <button onclick="getvalue(2)" type="button">2</button> </td>
+            <td> <button onclick="getvalue(3)" type="button">3</button> </td>
+            <td>  <button onclick="getvalue('+')" type="button">+</button> </td>
+
+         <br>
+        <tr>
+            <td> <button onclick="getvalue(4)" type="button">4</button>  </td>
+            <td> <button onclick="getvalue(5)" type="button">5</button>  </td>
+            <td> <button onclick="getvalue(6)" type="button">6</button> </td>
+            <td>  <button onclick="getvalue('-')" type="button">-</button> </td>
+        </tr>
+        <br>
+        <tr>
+            <td> <button onclick="getvalue(7)" type="button">7</button>  </td>
+            <td> <button onclick="getvalue(8)" type="button">8</button> </td>
+            <td> <button onclick="getvalue(9)" type="button">9</button> </td>
+            <td>  <button onclick="getvalue('*')" type="button">*</button> </td>
+        </tr>
+        <br>
+        <tr>
+            <td> <button onclick="reste('C')">c</button>  </td>
+            <td> <button onclick="getvalue(0)">0</button> </td>
+            <td> <button onclick="daubang('=')">=</button> </td>
+            <td>  <button onclick="getvalue('/')">/</button> </td>
+        </tr>
+    </table>
+    <script>
+        function getvalue(value) {
+            document.getElementById("output").value += value
+        }
+        function daubang(value){
+            let output = document.getElementById("output").value;
+            result = eval(output);
+            document.getElementById('output').value = result;
+        }
+        function reste(value) {
+            document.getElementById('output').value= "";
+        }
+    </script>
+
+</body>
+</html>
